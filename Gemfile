@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth'
+gem 'pry'
+gem 'platform-api'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
