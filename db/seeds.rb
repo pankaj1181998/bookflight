@@ -805,6 +805,6 @@ c = {
 c[:airports].select {
     |x|
     #a << [ x[:city_name] ,x[:airport_name] , x[:IATA_code] ]
-  	IATA_code.create( city: x[:city_name] , airport: x[:airport_name] , iata: x[:IATA_code] )
+   	IataCode.create( city: x[:city_name] , airport: x[:airport_name] , code: x[:IATA_code] )
   }
  
