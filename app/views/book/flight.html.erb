@@ -4,127 +4,49 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-       <table class="table table-striped	">
-          <tbody>
-             <tr>
-                <td colspan="1">
-                   <form class="well form-horizontal">
-                      <fieldset>
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Source</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i style="font-size:18px" class="fa">&#xf072;</i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
 
-                           	   </div>
-							</div>
-						 </div>
-                         
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Destination</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i style="font-size:18px" class="fa">&#xf072;</i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-                         
-                         
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Departure</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-                         
-
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Arrival</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-                         
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Seating Class</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Adults</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Children</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-
-                         <div class="form-group">
-                            <label class="col-md-4 control-label">Infant</label>
-                            <div class="col-md-8 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user">
-                               </i></span>
-                               
-                               <input id="fullName" name="fullName" placeholder="Full Name" class="form-control" required="true" value="" type="text">
-
-                           	   </div>
-							</div>
-						 </div>
-
-
-                      </fieldset>
-                   </form>
-                </td>
-                
-
-             </tr>
-          </tbody>
-       </table>
-    </div>
 
 
 <%= form_for book_flight_path do |f| %>
   <label>age</label>
   <%= f.text_field :age %>
+  <%= f.text_field :name, label: false, placeholder: "Source", input_html: { class: "form-control", required: true } %>
   <label>gender</label>
   <%= f.select :gender, options_for_select(@gender_options), { prompt: 'Select gender' } %>
   <label>ethnicity</label>
   <%= f.select :ethnicity, options_for_select(@ethnicity_options), { prompt: 'Select ethnicity' } %>
   <%= f.submit "Submit" %>
 <% end %>
+
+<%= bootstrap_form_for book_flight_path do |f| %>
+  
+
+<div class="container">
+       <table class="table table-striped">
+          <tbody>
+             <tr>
+                <td colspan="1">
+                   
+                      <fieldset>
+                         <div class="form-group">
+
+                            
+                            <%= f.text_field :src , label: "Source", placeholder: "Source"  %>
+                            <%= f.text_field :dest , label: "Destination",placeholder: "Destination"  %>
+                            <%= f.text_field :arr , label: "Arrival Date",placeholder: "YYYYMMDD	"  %>
+                            <%= f.text_field :dest , label: "Departure Date",placeholder: "YYYYMMDD"  %>
+                            <%= f.number_field :adults , label: "Adults",placeholder: "0-9"  %>
+                            <%= f.number_field :children , label: "Children",placeholder: "0-9"  %>
+                            <%= f.number_field :infants , label: "Infants",placeholder: "0-9"  %>
+                            
+							<%= f.submit "Search" %>
+                         </div>
+                      </fieldset>
+                </td>
+             </tr>
+          </tbody>
+       </table>
+    </div>
+
+   <% end %>	
+

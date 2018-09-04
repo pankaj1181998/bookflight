@@ -38,6 +38,7 @@ gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'pry'
 gem 'platform-api'
+gem "bootstrap_form", ">= 4.0.0.alpha1" 
 
 
 # Reduces boot times through caching; required in config/boot.rb
