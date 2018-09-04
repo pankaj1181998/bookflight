@@ -1,0 +1,2 @@
+class IataCode < ApplicationRecord
+end

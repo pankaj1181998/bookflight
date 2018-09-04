@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @iata_code.city %>
+</p>
+
+<p>
+  <strong>Airport:</strong>
+  <%= @iata_code.airport %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @iata_code.code %>
+</p>
+
+<%= link_to 'Edit', edit_iata_code_path(@iata_code) %> |
+<%= link_to 'Back', iata_codes_path %>

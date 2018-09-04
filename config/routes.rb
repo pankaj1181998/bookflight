@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :iata_codes
   get 'book/flight'
   root :to => 'book#flight'
    # devise_for :users

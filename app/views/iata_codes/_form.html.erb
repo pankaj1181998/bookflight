@@ -1,0 +1,32 @@
+<%= form_with(model: iata_code, local: true) do |form| %>
+  <% if iata_code.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(iata_code.errors.count, "error") %> prohibited this iata_code from being saved:</h2>
+
+      <ul>
+      <% iata_code.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :airport %>
+    <%= form.text_field :airport %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Iata Codes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Airport</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @iata_codes.each do |iata_code| %>
+      <tr>
+        <td><%= iata_code.city %></td>
+        <td><%= iata_code.airport %></td>
+        <td><%= iata_code.code %></td>
+        <td><%= link_to 'Show', iata_code %></td>
+        <td><%= link_to 'Edit', edit_iata_code_path(iata_code) %></td>
+        <td><%= link_to 'Destroy', iata_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Iata Code', new_iata_code_path %>
