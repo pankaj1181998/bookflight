@@ -34,6 +34,7 @@
                             <%= f.text_field :src , label: "Source", placeholder: "Source"  %>
                             <%= f.text_field :dest , label: "Destination",placeholder: "Destination"  %>
                             <%= f.text_field :arr , label: "Arrival Date",placeholder: "YYYYMMDD	"  %>
+                            <%= f.select :code ,label: "IATA" @iata_codes %>
                             <%= f.text_field :dest , label: "Departure Date",placeholder: "YYYYMMDD"  %>
                             <%= f.number_field :adults , label: "Adults",placeholder: "0-9"  %>
                             <%= f.number_field :children , label: "Children",placeholder: "0-9"  %>
