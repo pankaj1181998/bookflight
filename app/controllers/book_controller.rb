@@ -30,7 +30,7 @@ class BookController < ApplicationController
 					                    "children" => adults ,
 					                    "children" => children ,
 					                    "infants" => infants ,
-					                    "counter" => counter 
+					                    "counter" => "100" 
 					                })
 	#out= JSON.parse Net::HTTP.get_response(url).body
 
