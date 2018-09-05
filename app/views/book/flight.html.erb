@@ -1,53 +1,35 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!------ Include the above in your HEAD tag ---------->
+<div> 
+  <%= form_tag("/book/flight", method: "post") do %> 
 
+  <%= label_tag 'Source'%>
+  <%= select_tag(:src, options_for_select(@codes)) %>
+  <br>
+  <%= label_tag 'Destination'%>
+  <%= select_tag(:dest, options_for_select(@codes)) %>
+  <br>
+  <%= label_tag 'Departure YYYYMMDD' %>
+  <%= number_field_tag(:dept ) %>
+  <br>
+  <%= label_tag 'Arrival YYYYMMDD' %>
+  <%= number_field_tag(:arr ) %>
+  <br>
+  <%= label_tag 'Class'%>
+  <%= select_tag(:class, options_for_select([["Economy", "E"], ["Business", "B"]] ) ) %>
+  <br>
+  <%= label_tag 'Adults' %>
+  <%= number_field_tag(:adults ) %>
+  <br>
+  <%= label_tag 'Children' %>
+  <%= number_field_tag(:child ) %>
+  <br>
+  <%= label_tag 'Infants' %>
+  <%= number_field_tag(:infants  ) %>
+  <br>
+  <button class="btn btn-primary" >Submit</button>
 
+  <% end %>
+</div>
 
-
-<%= form_for book_flight_path do |f| %>
-  <label>age</label>
-  <%= f.text_field :age %>
-  <%= f.text_field :name, label: false, placeholder: "Source", input_html: { class: "form-control", required: true } %>
-  <label>gender</label>
-  <%= f.select :gender, options_for_select(@gender_options), { prompt: 'Select gender' } %>
-  <label>ethnicity</label>
-  <%= f.select :ethnicity, options_for_select(@ethnicity_options), { prompt: 'Select ethnicity' } %>
-  <%= f.submit "Submit" %>
-<% end %>
-
-<%= bootstrap_form_for book_flight_path do |f| %>
+<div id="result">
   
-
-<div class="container">
-       <table class="table table-striped">
-          <tbody>
-             <tr>
-                <td colspan="1">
-                   
-                      <fieldset>
-                         <div class="form-group">
-
-                            
-                            <%= f.text_field :src , label: "Source", placeholder: "Source"  %>
-                            <%= f.text_field :dest , label: "Destination",placeholder: "Destination"  %>
-                            <%= f.text_field :arr , label: "Arrival Date",placeholder: "YYYYMMDD	"  %>
-                            <%= f.select :code ,label: "IATA" @iata_codes %>
-                            <%= f.text_field :dest , label: "Departure Date",placeholder: "YYYYMMDD"  %>
-                            <%= f.number_field :adults , label: "Adults",placeholder: "0-9"  %>
-                            <%= f.number_field :children , label: "Children",placeholder: "0-9"  %>
-                            <%= f.number_field :infants , label: "Infants",placeholder: "0-9"  %>
-                            
-							<%= f.submit "Search	" %>
-                         </div>
-                      </fieldset>
-                </td>
-             </tr>
-          </tbody>
-       </table>
-    </div>
-
-   <% end %>	
-
+</div>
