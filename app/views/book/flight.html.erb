@@ -1,5 +1,5 @@
 <div> 
-  <%= form_tag("/book/flight", method: "post") do %> 
+  <%= form_tag("/book/flight", method: "post" , remote: true) do %> 
 
   <%= label_tag 'Source'%>
   <%= select_tag(:src, options_for_select(@codes)) %>

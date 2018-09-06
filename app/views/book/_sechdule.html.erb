@@ -1,11 +1,7 @@
 
-<% if !@res["items"].empty? %>
-<%= image_tag(@res["items"][0]["snippet"]["thumbnails"]["default"]["url"], :alt => "Pic Unavailable") %>
-<br><br>
-<strong> <%= @res["items"][0]["snippet"]["title"] %></strong>
- 
- <p><b>Added Successfully..</b></p>
- <% else %>
- <strong>Wrong Link!!! Try Another One</strong>
- <% end %>
+<% if ! @result["data"]["returnflights"].empty? %>
+	<% @result["data"]["returnflights"].each do |x| %>	
+	<%= p x["airline"] %>
+	<% end %> 
+<% end %>
  </div>

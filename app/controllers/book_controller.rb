@@ -5,8 +5,11 @@ require 'pry'
 require 'platform-api'
 
 class BookController < ApplicationController
+  respond_to :js, :html, :json
+  before_action :flight
   
   def flight
+  	@detail = nil
   	@codes = []
   	IataCode.all.each do |x|
     @codes << [ x.city , x.airport , x.code]
@@ -40,15 +43,15 @@ class BookController < ApplicationController
 
 		res = Net::HTTP.get_response(uri)
 		puts res.body if res.is_a?(Net::HTTPSuccess)
-
+		@result = JSON.parse(res.body) if res.is_a?(Net::HTTPSuccess)
         
 	    rescue => e
 	        puts "failed #{e}"
 	end
 	binding.pry
 	# respond_to do |format|
- #      format.html { notice: 'Iata code was successfully destroyed.' }
- #      format.json { head :no_content }
+ #      format.html { }
+ #      format.json { render: @result }
  #      format.js
  #    end
 
