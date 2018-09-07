@@ -48,9 +48,9 @@ class BookController < ApplicationController
 	    rescue => e
 	        puts "failed #{e}"
 	end
-	binding.pry
-	# respond_to do |format|
- #      format.html { }
+	
+ #  respond_to do |format|
+ #      format.html 
  #      format.json { render: @result }
  #      format.js
  #    end
