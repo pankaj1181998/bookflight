@@ -1,8 +1,12 @@
 <% begin %>
 <% if ! @result["data"]["returnflights"].empty? %>
 	<% @result["data"]["returnflights"].each do |x| %>	
+	
+	<%= image_tag(x["airline"].downcase,alt: "Image Unavailable", size: "50" 	) %>
 	<%= p x["airline"] %>
-	<%= image_tag(x["airline"].downcase,alt: "Image Unavailable", size: "16" 	) %>
+	<%= p x["deptime"] %>
+	<%= p x["duration"] %>
+	<br>
 	<% end %> 
 <% end %>
  </div>
