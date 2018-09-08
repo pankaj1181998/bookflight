@@ -1,0 +1,31 @@
+<div> 
+  <%= form_tag("/book/flight", method: "post" , remote: true) do %> 
+
+  <%= label_tag 'Source'%>
+  <%= select_tag(:src, options_for_select(@codes)) %>
+  <br>
+  <%= label_tag 'Destination'%>
+  <%= select_tag(:dest, options_for_select(@codes)) %>
+  <br>
+  <%= label_tag 'Departure YYYYMMDD' %>
+  <%= number_field_tag(:dept ) %>
+  <br>
+  <%= label_tag 'Arrival YYYYMMDD' %>
+  <%= number_field_tag(:arr ) %>
+  <br>
+  <%= label_tag 'Class'%>
+  <%= select_tag(:class, options_for_select([["Economy", "E"], ["Business", "B"]] ) ) %>
+  <br>
+  <%= label_tag 'Adults' %>
+  <%= number_field_tag(:adults ) %>
+  <br>
+  <%= label_tag 'Children' %>
+  <%= number_field_tag(:child ) %>
+  <br>
+  <%= label_tag 'Infants' %>
+  <%= number_field_tag(:infants  ) %>
+  <br>
+  <button class="btn btn-primary" >Submit</button>
+
+  <% end %>
+</div>
