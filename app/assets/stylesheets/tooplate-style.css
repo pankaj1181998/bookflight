@@ -113,7 +113,7 @@ p {
 }
 
 #result {
-	background-color: rgba(250, 250, 250, 0.1);
+	background-color: grey;
 }
 
 .banner .social-links a {
@@ -159,7 +159,6 @@ p {
 
 
 .banner {
-	background-image: url("banner-bg.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
