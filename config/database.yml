@@ -80,5 +80,5 @@ test:
 production:
   <<: *default
   database: fly
-  username: myapp
+  username: fly
   password:
