@@ -2,13 +2,33 @@
 <% if ! @result["data"]["returnflights"].empty? %>
 	<% @result["data"]["returnflights"].each do |x| %>	
 	
-	<%= image_tag(x["airline"].downcase,alt: "Image Unavailable", size: "50" 	) %>
-	<%= p x["airline"] %>
-	<%= p x["deptime"] %>
-	<%= p x["duration"] %>
-	<br>
-	<% end %> 
+	
+	
+	
+	
+
+
+<div class="card" style="width: 18rem;">
+  <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "card-img-top" , size: "50" 	) %>
+	<div class="card-body">
+    <h5 class="card-title"><%= x["airline"] %></h5>
+    <p class="card-text"><%= p x["deptime"] %>
+	<%= p x["duration"] %></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<% end %> 
 <% end %>
- </div>
+
+
+
+
+
+
+
+
+
+
 
  <% end %>
