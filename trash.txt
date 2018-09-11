@@ -41,3 +41,45 @@
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
+
+
+
+<% begin %>
+    <div class="container flow1">
+    
+          <% if ! @result["data"]["returnflights"].empty? %>
+
+     <!-- The four columns -->
+      <div class="row">
+
+       <% count = 0 %>
+       <% @result["data"]["returnflights"].each do |x| %>
+          <div class="col-sm-4" >
+           <div class="mx-auto">
+            <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "card-img-top" , size: "50"   ) %>
+          
+            <div class="card-body">
+              <h5 class="card-title"><%= x["airline"] %></h5>
+             <%=  x["deptime"] %>
+             <%=  x["duration"] %>
+            </div>
+           
+            <% count += 1  %>
+            </div>
+          </div>
+          
+          <% if count%3 == 0 %>
+          <p> <br>
+          </p>
+         
+          <% end %>
+
+        <% end %> 
+        </div>
+
+
+      <% end %>
+    </div>
+           
+         
+<% end %>

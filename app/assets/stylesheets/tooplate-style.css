@@ -107,18 +107,17 @@ p {
   transition: all 0.5s;
 }
 
-#result {
+.flow {
 	background-image: url('img1.jpg');
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center center;
 	text-align: center;
-}
 
-.flow {
-	overflow: auto ;
 }
-
+div.flow1{
+		overflow: auto ;
+}
 
 
 .banner .social-links a {

@@ -1,39 +1,22 @@
+
 <% begin %>
-    <div class="container">
+ <% if ! @result["data"]["returnflights"].empty? %>
+   <% @result["data"]["returnflights"].each do |x| %>
     
-          <% if ! @result["data"]["returnflights"].empty? %>
-
-     <!-- The four columns -->
-      <div class="row">
-
-       <% count = 0 %>
-       <% @result["data"]["returnflights"].each do |x| %>
-          <div class="col-sm-4" >
-           <div class="mx-auto">
-            <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "card-img-top" , size: "50" 	) %>
-        	
-        	  <div class="card-body">
-        	    <h5 class="card-title"><%= x["airline"] %></h5>
-        	   <%=  x["deptime"] %>
-             <%=  x["duration"] %>
-        	  </div>
-        	 
-            <% count += 1  %>
-        	  </div>
+    <div class="w3-container">
+     <div class="w3-panel w3-pale-green">
+      <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "images" , size: "70"   ) %>
+           <div>
+            <h3 style=" word-spacing: 180px; "> 
+             - <%= x["origin"] %> ------------>> <%= x["destination"] %>
+            </h3> 
           </div>
-          <% if count%3 == 0 %>
-          <p> <br>
-          </p>
-         
-          <% end %>
-
-        <% end %> 
-        </div>
-
-
-      <% end %>
-    </div>
-           
-         
-<% end %>
-
+          <div> 
+        <h6 style=" word-spacing: 180px; ">  <%= x["airline"] %> Dept:<%= x["deptime"] %> <%=  x["duration"] %> </h6></div>
+    
+    
+   </div>
+  </div>
+  <% end %>
+ <% end %>
+<% end %> 
