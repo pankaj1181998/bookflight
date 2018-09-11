@@ -12,11 +12,6 @@ http://www.tooplate.com/view/2093-flight
     font-family: 'Open Sans', arial, sans-serif;
 }
 
-body {
-	overflow-x: hidden;
-	background-color: #fff;
-}
-
 ul {
 	list-style: none;
 	margin: 0px;
@@ -113,8 +108,18 @@ p {
 }
 
 #result {
-	background-color: grey;
+	background-image: url('img1.jpg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	text-align: center;
 }
+
+.flow {
+	overflow: auto ;
+}
+
+
 
 .banner .social-links a {
   display:block;
