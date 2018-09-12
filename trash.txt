@@ -83,3 +83,25 @@
            
          
 <% end %>
+
+
+
+
+
+    
+    <div class="w3-container">
+     
+     <div class="w3-panel w3-pale-green">
+      <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "images" , size: "70"   ) %>
+           <div>
+            <h3 style=" word-spacing: 180px; "> 
+             - <%= x["origin"] %> ------------>> <%= x["destination"] %>
+            </h3> 
+          </div>
+          <div> 
+        <h6 style=" word-spacing: 180px; ">  <%= x["airline"] %> Dept:<%= x["deptime"] %> <%=  x["duration"] %> </h6></div>
+    
+    
+   </div>
+  </div>
+    

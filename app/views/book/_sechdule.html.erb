@@ -1,24 +1,37 @@
 
-<% begin %>
+<div class="container">
+  <% begin %>
  <% if ! @result["data"]["returnflights"].empty? %>
    
-   <% @result["data"]["returnflights"].each do |x| %>
-    
-    <div class="w3-container">
-     
-     <div class="w3-panel w3-pale-green">
-      <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "images" , size: "70"   ) %>
-           <div>
-            <h3 style=" word-spacing: 180px; "> 
-             - <%= x["origin"] %> ------------>> <%= x["destination"] %>
-            </h3> 
-          </div>
-          <div> 
-        <h6 style=" word-spacing: 180px; ">  <%= x["airline"] %> Dept:<%= x["deptime"] %> <%=  x["duration"] %> </h6></div>
-    
-    
-   </div>
+   
+
+<div class="card-deck mb-3 text-center">
+   <div class="row"> 
+     <% @result["data"]["returnflights"].each do |x| %>
+     <div class="col-sm-4" >
+                <div class="card mb-4 box-shadow">
+                  <div class="card-header">
+                    <h4 class="my-0 font-weight-normal"><%= x["airline"] %> </h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"> <small>
+                     <%= image_tag(x["airline"].downcase,alt: "Image Unavailable",  size: "70"   ) %>
+                </small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li><strong><%= x["origin"] %> --> <%= x["destination"] %></strong></li>
+                      <li><%= x["deptime"] %></li>
+                      <li><%=  x["duration"] %></li>
+                      <li>Help center access</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                  </div>
+                </div>
+
+    </div>            
+           <% end %>
   </div>
+</div>
+ 
   <% end %>
- <% end %>
 <% end %> 
+</div>
