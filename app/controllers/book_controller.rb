@@ -25,6 +25,10 @@ class BookController < ApplicationController
     infants = params[:infants].to_s
     counter = params[:counter].to_s 		# 0 - international , 100 - domestic
 
+    @total = adults.to_i + children.to_i + infants.to_i
+    @param1 = adults.to_i
+    @param2 = children.to_i
+    @param3 = infants.to_i
     begin
         
     	uri = URI('https://developer.goibibo.com/api/search/')
@@ -47,7 +51,7 @@ class BookController < ApplicationController
         
 	    rescue => e
 	        puts "failed #{e}"
-	        	
+
 	end
 	
  #  respond_to do |format|

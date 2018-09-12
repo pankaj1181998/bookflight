@@ -2,6 +2,7 @@
 <div class="container">
   <div class="w3-container">
   <% begin %>
+  <% count = 0 %> 
  <% if ! @result["data"]["returnflights"].empty? %>
    
    <h3 class=" center"> Choose the Flight : </h3>
@@ -9,25 +10,70 @@
 <div class="card-deck mb-3 text-center">
    <div class="row"> 
      <% @result["data"]["returnflights"].each do |x| %>
+     <% count += 1 %>
      <div class="col-sm-4" >
+
                 <div class="card mb-4 box-shadow w3-pale-green">
-                  <div class="card-header">
-                    <h4 class="my-0 font-weight-normal"><%= x["airline"] %> </h4>
-                  </div>
-                  <div class="card-body">
-                    <h1 class="card-title pricing-card-title"> <small>
-                     <%= image_tag(x["airline"].downcase,alt: "Image Unavailable",  size: "70"   ) %>
-                </small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                      <li><strong><%= x["origin"] %> --> <%= x["destination"] %></strong></li>
-                      <li>Depature : <%= x["deptime"] %></li>
-                      <li>Duration :<%=  x["duration"] %></li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Book</button>
+                    <div class="card-header">
+                      <h4 class="my-0 font-weight-normal"><%= x["airline"] %> </h4>
+                    </div>
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title"> <small>
+                       <%= image_tag(x["airline"].downcase,alt: "Image Unavailable",  size: "70"   ) %>
+                     </small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li><strong><%= x["origin"] %> --> <%= x["destination"] %></strong></li>
+                        <li>Depature : <%= x["deptime"] %></li>
+                        <li>Duration :<%=  x["duration"] %></li>
+                      </ul>
+                     <!-- Button trigger modal -->
+                
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter<%= count %>">
+             Fares</button>
+                    </div>
+
+     
+                </div>   <!-- w3 pale -->
+
+                <!-- *********************  MODAL **************************** -->
+               
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter<%= count %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Fare</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <b>Base Fare:</b> <%= x["fare"]["adultbasefare"] %> 
+                        <b>Extra Fares:</b> <%= x["fare"]["grossamount"] - x["fare"]["adultbasefare"] %>
+                        <br>
+                        <strong>Total Bookings : <%= @total %> </strong>
+                         <ul>
+                         <li>Adult: <%= @param1 %></li>
+                         <li>Children: <%= @param2 %></li>
+                         <li>Infant:<%= @param3 %></li>
+                         </ul>
+                       <div class="w3-pale-green"><h3> Total Fair : <%= @total * x["fare"]["grossamount"] %> </h3></div>
+                        </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Confirm</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-    </div>            
+                <!-- *********************  MODAL **************************** -->
+
+
+
+    </div>    <!-- col sm 4 -->            
            <% end %>
   </div>
 </div>
@@ -36,3 +82,4 @@
 <% end %> 
  </div>
 </div>
+
