@@ -42,7 +42,7 @@ class BookController < ApplicationController
 		uri.query = URI.encode_www_form(params)
 
 		res = Net::HTTP.get_response(uri)
-		# puts res.body if res.is_a?(Net::HTTPSuccess)
+		# => puts res.body if res.is_a?(Net::HTTPSuccess)
 		@result = JSON.parse(res.body) if res.is_a?(Net::HTTPSuccess)
         
 	    rescue => e
