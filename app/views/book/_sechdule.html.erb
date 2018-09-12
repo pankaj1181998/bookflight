@@ -1,9 +1,11 @@
 
 <% begin %>
  <% if ! @result["data"]["returnflights"].empty? %>
+   
    <% @result["data"]["returnflights"].each do |x| %>
     
     <div class="w3-container">
+     
      <div class="w3-panel w3-pale-green">
       <%= image_tag(x["airline"].downcase,alt: "Image Unavailable", :class => "images" , size: "70"   ) %>
            <div>

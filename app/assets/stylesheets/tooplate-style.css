@@ -107,14 +107,7 @@ p {
   transition: all 0.5s;
 }
 
-.flow {
-	background-image: url('img1.jpg');
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center center;
-	text-align: center;
 
-}
 div.flow1{
 		overflow: auto ;
 }

@@ -47,6 +47,7 @@ class BookController < ApplicationController
         
 	    rescue => e
 	        puts "failed #{e}"
+	        	
 	end
 	
  #  respond_to do |format|
