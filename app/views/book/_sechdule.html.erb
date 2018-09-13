@@ -1,7 +1,7 @@
 <section class="intro">
    <row>
 <!-- ******************************************LEFT SPLIT ******************************************** -->
-  <div class="col-lg-6 col-sm-12 left">
+  <div class="col-lg-6 col-sm-12 left w3-pale-red">
    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 
         <div class="container" id="go">
@@ -15,7 +15,7 @@
         <div class="card-deck mb-3 text-center">
            <div class="row"> 
              <% @result["data"]["onwardflights"].each do |x| %>
-              <% if x["destination"] == params[:dest].to_s %>
+              <% if x["destination"] == params[:dest].to_s && x["origin"] == params[:src].to_s %>
                  <% count1 += 1 %>
                  <div class="col-sm-4">
 
@@ -39,7 +39,7 @@
                                 </div>
 
                  
-                            </div>   <!-- w3 pale -->
+                        </div>   <!-- w3 pale -->
 
                             <!-- *********************  MODAL **************************** -->
                            
@@ -54,7 +54,7 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
-                                  <div class="modal-body">
+                                  <div class="modal-body" style="color: black ;">
 
                                     <b>Base Fare:</b> <%= x["fare"]["adultbasefare"] %> ||
                                     <b>Extra Fares:</b> <%= x["fare"]["grossamount"] - x["fare"]["adultbasefare"] %>
@@ -97,7 +97,7 @@
    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
   </div>
 <!-- ******************************************RIGHT SPLIT ******************************************** -->
-  <div class="col-lg-6 col-sm-12 right">
+  <div class="col-lg-6 col-sm-12 right w3-light-grey">
       <!--    &&&&&&&&&&&&&&&&&&&& -->
                <div class="container" id="go">
               <div class="w3-container">
@@ -111,7 +111,7 @@
             <div class="card-deck mb-3 text-center">
                <div class="row"> 
                  <% @result["data"]["returnflights"].each do |x| %>
-                  <% if x["destination"] == params[:src].to_s %>
+                  <% if x["destination"] == params[:src].to_s && x["origin"] == params[:dest].to_s%>
                      <% count2 += 1 %>
                      <div class="col-sm-4">
 
