@@ -18,7 +18,35 @@
   .banner {
     background-image: url(<%= asset_path 'banner-bg.jpg' %>)
   }
-  
+  .intro{
+    height:100%
+  }
+
+  .left{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background-color:#3d231b;
+    height : 100%;
+    color : #FFF;
+
+  }
+  .right{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    background-color:#FFF;
+    height : 100%;
+    color : #3d231b;
+  }
+  @media (max-width: 1200px) { 
+    .left{
+      height:50%
+    }
+    .right{
+      height:50%
+    }
+  }
   </style>
 
 
@@ -105,18 +133,25 @@
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="to">To:</label>
-                                          <%= select_tag(:dest, options_for_select(@codes)) %>
+                                            <%= select_tag(:dest, options_for_select(@codes)) %>
                                         </fieldset>
                                     </div>
 
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="departure">Departure date:</label>
-                                        <%= select_date Date.today, prefix: :start_date ,:class => "form-control date" %>
+                                        <%= select_date Date.today, prefix: :start_date ,:class => "form-control" %>
                                             
                                         </fieldset>
                                      </div>
                                    
+                                   <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="departure">Departure date:</label>
+                                        <%= select_date Date.today, prefix: :end_date ,:class => "form-control" %>
+                                            
+                                        </fieldset>
+                                     </div>
 
                                     <div class="col-md-6">
                                         <fieldset>
@@ -135,7 +170,7 @@
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="return">Infants:</label>
-                                      <%= text_field_tag :infants , "" , class: "form-control date" , id: "return"  %>
+                                      <%= text_field_tag :infants , "" , class: "form-control" , id: "return"  %>
                                         </fieldset>
                                     </div>
 

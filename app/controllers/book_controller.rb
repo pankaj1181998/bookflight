@@ -35,13 +35,29 @@ class BookController < ApplicationController
       end
     end
 
+    p2 = params[:end_date]
+    
+    if p2!=nil
+    date2 = p2["year"]
+      if p2["month"].to_i < 10
+         date2 = date2 + "0" +p2["month"]
+      else
+        date2 = date2 + p2["month"]
+      end
+      
+      if p2["day"].to_i < 10
+         date2 = date2 + "0" +p2["day"]
+      else
+        date2 = date2 + p2["day"]
+      end
+    end
    
    
 
     source = params[:src].to_s
     destination = params[:dest].to_s
     dateofdeparture = date1.to_s
-    dateofarrival = ""
+    dateofarrival = date2.to_s
     seatingclass = params[:class].to_s
     adults = params[:adults].to_s
     children = params[:child].to_s
