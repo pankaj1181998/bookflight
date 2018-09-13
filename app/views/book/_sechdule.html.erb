@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="card-body">
                                   <h1 class="card-title pricing-card-title"> <small>
-                                   <%= image_tag(x["airline"].downcase,alt: "Image Unavailable",  size: "70"   ) %>
+                                   <%= image_tag(x["airline"].downcase.to_s,alt: "Image Unavailable",  size: "70"   ) %>
                                  </small></h1>
                                   <ul class="list-unstyled mt-3 mb-4">
                                     <li><strong><%= x["origin"] %> --> <%= x["destination"] %></strong></li>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="card-body">
                                       <h1 class="card-title pricing-card-title"> <small>
-                                       <%= image_tag(x["airline"].downcase,alt: "Image Unavailable",  size: "70"   ) %>
+                                     <%= image_tag(x["airline"].downcase.to_s,alt: "Image Unavailable",  size: "70"   ) %>
                                      </small></h1>
                                       <ul class="list-unstyled mt-3 mb-4">
                                         <li><strong><%= x["origin"] %> --> <%= x["destination"] %></strong></li>
