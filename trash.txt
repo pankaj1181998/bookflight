@@ -105,3 +105,18 @@
    </div>
   </div>
     
+
+
+Date
+    <%= text_field_tag :dept , "" , class: "form-control date" , id: "depature"  %>
+    <%= select_date Date.today, prefix: :start_date %>
+  
+  <div class="field">
+  <b>Start Date</b><br />
+  <%= date_select :startDate, options = {:order => [:day, :month, :year]} %>
+  </div>
+
+  <div class="field">
+  <b>End Date</b><br />
+  <%= date_select :endDate, options = {:order => [:day, :month, :year]} %>
+  </div>

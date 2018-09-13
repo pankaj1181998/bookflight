@@ -112,29 +112,23 @@
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="departure">Departure date:</label>
-                                        <%= text_field_tag :dept , "" , class: "form-control date" , id: "depature"  %>
+                                        <%= select_date Date.today, prefix: :start_date ,:class => "form-control date" %>
                                             
                                         </fieldset>
                                      </div>
-
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <label for="return">Return date:</label>
-                                      <%= text_field_tag :arr , "" , class: "form-control date" , id: "return"  %>
-                                        </fieldset>
-                                    </div>
+                                   
 
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="return">Adults(0-9):</label>
-                                      <%= text_field_tag :adults , "" , class: "form-control date" , id: "return"  %>
+                                      <%= text_field_tag :adults , "" , class: "form-control" , id: "return"  %>
                                         </fieldset>
                                     </div>
 
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="return">Children(0-9):</label>
-                                      <%= text_field_tag :child , "" , class: "form-control date" , id: "return"  %>
+                                      <%= text_field_tag :child , "" , class: "form-control" , id: "return"  %>
                                         </fieldset>
                                     </div>
 
@@ -150,6 +144,7 @@
                                    <%= select_tag(:class, options_for_select([["Economy", "E"], ["Business", "B"]] ) ) %>
                                       </div>
 
+
                                       <div class="col-md-6">
                                           <fieldset>
                                               <button type="submit" id="form-submit" class="btn">Order Ticket Now</button>
@@ -162,7 +157,6 @@
                           </div>
                       </section>
                   </div>
-
  <% end %>
 
 
@@ -172,6 +166,7 @@
     </section>
   
     <%= yield %>
+
 
 
   </body>
