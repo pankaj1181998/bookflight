@@ -86,7 +86,7 @@ class BookController < ApplicationController
 	                "infants" => infants ,
 	                "counter" => "100" }
 		uri.query = URI.encode_www_form(params)
-
+    p "completed"
 		res = Net::HTTP.get_response(uri)
 		# => puts res.body if res.is_a?(Net::HTTPSuccess)
 		@result = JSON.parse(res.body) if res.is_a?(Net::HTTPSuccess)
