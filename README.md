@@ -1,4 +1,4 @@
-# bookflight(STILL IN DEVELOPMENT)
+# bookflight(edits needed)
 ### STACK USED 
 - RUBY ON RAILS/HTML/CSS/Bootstrap/JS .
 
