@@ -285,9 +285,9 @@ Devise.setup do |config|
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #
   # ActiveSupport.on_load(:devise_failure_app) do
-  #   include Turbolinks::Controller
+  #   include Turbolinks::Controller                                     https://secure-escarpment-80479.herokuapp.com/
   # end
 
-config.omniauth :facebook, "342849259792624", "6d91b11ce49322c736bae0d70f9041eb" , callback_url: "http://localhost:3000/users/auth/facebook/callback"
+config.omniauth :facebook, "342849259792624", "6d91b11ce49322c736bae0d70f9041eb" , callback_url: "https://secure-escarpment-80479.herokuapp.com/users/auth/facebook/callback"
 
 end
