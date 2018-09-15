@@ -8,16 +8,17 @@ class BookController < ApplicationController
   respond_to :js, :html, :json
   before_action :flight
   
+  # validates_presence_of   :adults, :message => 'Please enter an integer for adults'
+  # validates_presence_of   :child, :message => 'Please enter an integer for children'
+  # validates_presence_of   :infants , :message => 'Please enter an integer for infants'
+  
   def flight
-  	@detail = nil
-  	@codes = []
   	
+    @codes = []
+    
     IataCode.all.each do |x|
       @codes << [ x.city , x.airport , x.code]
-	  end
-    
-   
-
+    end
     p1 = params[:start_date]
     
     if p1!=nil
@@ -65,12 +66,24 @@ class BookController < ApplicationController
     counter = params[:counter].to_s 		# 0 - international , 100 - domestic
     
    
+   if adults == "" || adults == "0"
+     adults ="1"
+   end
+
+   if children == ""
+     children = "0"
+   end
+
+   if infants == ""
+    infants = "0"
+  end
 
     @total = adults.to_i + children.to_i + infants.to_i
     @param1 = adults.to_i
     @param2 = children.to_i
     @param3 = infants.to_i
    
+    
 
     begin
     	uri = URI('https://developer.goibibo.com/api/search/')
@@ -90,16 +103,19 @@ class BookController < ApplicationController
 		res = Net::HTTP.get_response(uri)
 		# => puts res.body if res.is_a?(Net::HTTPSuccess)
 		@result = JSON.parse(res.body) if res.is_a?(Net::HTTPSuccess)
-       
+    
+
+    
 	    rescue => e
 	        puts "failed #{e}"
      end
 	
- #  respond_to do |format|
- #      format.html 
- #      format.json { render: @result }
- #      format.js
- #    end
+  render "book/flight"
+  # respond_to do |format|
+  #     format.html { render :controller =>"book", :action => "flight" }
+  #     format.json { render  @result }
+  #     #format.js
+  #   end
 
   
   end
