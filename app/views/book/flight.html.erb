@@ -7,13 +7,16 @@
 
  -->
 
-<br><br><hr><br> <hr>
+<% if user_signed_in? %>
+
 <section class="intro">
    <row>
  <% begin %>
 <!-- ******************************************LEFT SPLIT ******************************************** -->
-  
-  <div id="MYDIV1" class="w3-pale-red">
+  <!-- class="w3-pale-red" -->
+ <div class="w3-light-grey">
+<hr><hr></div>
+  <div>
    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 
         <div class="container" id="go">
@@ -109,9 +112,10 @@
    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
   </div>
 <!-- ******************************************RIGHT SPLIT ******************************************** -->
+<<div class="w3-light-grey">
+<hr><hr></div>
 
-<br><br><hr><br> <hr>
-  <div class="w3-light-grey">
+  <div>
       <!--    &&&&&&&&&&&&&&&&&&&& -->
                <div class="container" id="go">
               <div class="w3-container">
@@ -212,3 +216,12 @@
   <% end %>  
 </row>
 </section>
+
+<% else %>
+<br><br><br><br>
+<div class="container">
+	<div class="jumbotron center"><h1>
+	Sign Up First</h1></div>
+
+</div>
+<% end %>
