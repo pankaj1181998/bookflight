@@ -171,7 +171,7 @@ div.flow1{
 
 .banner .submit-form {
 	text-align: left;
-	margin: 155px 0px;
+	margin: 10px 0px;
 	background-color: rgba(250, 250, 250, 0.95);
 	padding: 30px;
 }
@@ -207,7 +207,7 @@ div.flow1{
 	border: none;
 	background-color: #e7e7e7;
 	font-size: 11px;
-	color: #9a9a9a;
+	color: black;
 	outline: none;
 	padding: 0px 10px;
 	display: inline-block;
