@@ -288,6 +288,6 @@ Devise.setup do |config|
   #   include Turbolinks::Controller                                     https://secure-escarpment-80479.herokuapp.com/
   # end
 
-config.omniauth :facebook, "342849259792624", "6d91b11ce49322c736bae0d70f9041eb" , callback_url: "https://secure-escarpment-80479.herokuapp.com/users/auth/facebook/callback_url"
+config.omniauth :facebook, "342849259792624", "6d91b11ce49322c736bae0d70f9041eb" , callback_url: "https://secure-escarpment-80479.herokuapp.com/users/auth/facebook/callback"
 
 end
