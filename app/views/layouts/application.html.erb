@@ -79,8 +79,8 @@
                               </div>
                               <div class="w3-container">
                               <% if user_signed_in? %>
-                              <h4 style="color: white;">Welcome , <%= current_user.name %></h4>
-                              <img src= "<%= current_user.image %>" alt="Img not found"  class="w3-circle">
+                              <strong><h4 style="color: white;">Welcome , <%= current_user.name %></h4></strong>
+                              <img src= "<%= current_user.image %>" alt="Img not found"  class="w3-circle center">
                               <% end %>
                               </div>
                               <div class="tabs-content">
