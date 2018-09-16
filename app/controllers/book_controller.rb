@@ -7,15 +7,19 @@ require 'platform-api'
 class BookController < ApplicationController
   respond_to :js, :html, :json
   before_action :flight
+  # attr_accessor :src, :api
+  # validates :should_not_be_equal
   
-  # validates_presence_of   :adults, :message => 'Please enter an integer for adults'
-  # validates_presence_of   :child, :message => 'Please enter an integer for children'
-  # validates_presence_of   :infants , :message => 'Please enter an integer for infants'
-  
+  # def should_not_be_equal
+  #   if :src.present? && dest.present? 
+  #     errors.add(:src,"Source & destination can't be same") if :src == :dest
+  #   end  
+  # end
+
+
   def flight
   	
     @codes = []
-    
     IataCode.all.each do |x|
       @codes << [ x.city , x.airport , x.code]
     end
@@ -64,8 +68,10 @@ class BookController < ApplicationController
     children = params[:child].to_s
     infants = params[:infants].to_s
     counter = params[:counter].to_s 		# 0 - international , 100 - domestic
-    
-   
+   if source == destination
+    flash[:notice] = "Source and Destination Can't be Same!!!"
+   end
+
    if adults == "" || adults == "0"
      adults ="1"
    end
@@ -110,12 +116,12 @@ class BookController < ApplicationController
 	        puts "failed #{e}"
      end
 	
-  render "book/flight"
-  # respond_to do |format|
-  #     format.html { render :controller =>"book", :action => "flight" }
-  #     format.json { render  @result }
-  #     #format.js
-  #   end
+    render "book/flight"
+    # respond_to do |format|
+    #     format.html { render :controller =>"book", :action => "flight" }
+    #     format.json { render  @result }
+    #     #format.js
+    #   end
 
   
   end
