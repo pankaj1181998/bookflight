@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'privacy/policy'
   get 'home/view'
   resources :iata_codes
   get 'book/flight'
